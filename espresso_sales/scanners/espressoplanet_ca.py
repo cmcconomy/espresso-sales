@@ -4,16 +4,13 @@ import scanutil
 
 def get_sale_items():
     return \
-        get_sale_items_for("espresso") + \
-        get_sale_items_for("grinders")
+        get_sale_items_for("espresso-machines") + \
+        get_sale_items_for("grinders") + \
+        get_sale_items_for("coffee-maker") + \
+        get_sale_items_for("accessories")
 
 def get_sale_items_for(page_type):
-    if page_type == "espresso":
-        base_url = "https://www.espressoplanet.com/coffee-espresso/espresso-machines/?sort=orderby&sort_direction=0&objects_per_page=1000"
-    elif page_type == "grinders":
-        base_url = "https://www.espressoplanet.com/coffee-espresso/coffee-grinder/?sort=orderby&sort_direction=0&objects_per_page=1000"
-    else:
-        return []
+    base_url = f"https://www.espressoplanet.com/coffee-espresso/{page_type}/?sort=orderby&sort_direction=0&objects_per_page=1000"
 
     page = requests.get(base_url)
     soup = BeautifulSoup(page.content, 'html.parser')
