@@ -1,3 +1,0 @@
-Welcome.
-
-<bold>testing</bold>
