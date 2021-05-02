@@ -32,7 +32,7 @@ async function setupTable() {
   const columnDefs = [
     { field: "image", resizable: true,
       cellRenderer: (row) => {
-        return `<a href="${row.data.url}"><img style="height:40px" src="${row.data.image}" alt="${row.data.name}"</a>`
+        return `<a target="_blank" href="${row.data.url}"><img style="height:40px" src="${row.data.image}" alt="${row.data.name}"</a>`
       }
     
     },
