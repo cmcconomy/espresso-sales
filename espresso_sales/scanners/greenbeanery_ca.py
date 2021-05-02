@@ -24,7 +24,7 @@ def get_sale_items_for(page_type):
         
         sale_item = {
             'name' : sale_span.parent.select('span.title')[0].text.strip(),
-            'image' : f"https:{sale_span.parent.parent.parent.select('img')[0]['src'].strip()}",
+            'image' : f"https:{sale_span.parent.parent.parent.select('img')[0]['data-src'].strip()}",
             'url' : f"https://greenbeanery.ca{sale_span.parent.parent.parent.select('a')[0]['href'].strip()}",
             'regular_price' : scanutil.get_money(sale_span.select('span.money')[1].text),
             'sale_price' : scanutil.get_money(sale_span.select('span.money')[0].text),

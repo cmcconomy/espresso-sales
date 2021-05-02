@@ -1,4 +1,5 @@
 import json
+import datetime
 from scanners import espressocanada_ca, \
     espressoplanet_ca, idrinkcoffee_com, espressodolce_ca, \
     faema_ca, caffetech_com, zcafe_ca, espressotec_com, \
@@ -7,7 +8,7 @@ from scanners import espressocanada_ca, \
 
 
 def get_all_sales():
-    return \
+    sale_items = \
         espressocanada_ca.get_sale_items() + \
         espressoplanet_ca.get_sale_items() + \
         idrinkcoffee_com.get_sale_items() + \
@@ -20,4 +21,10 @@ def get_all_sales():
         greenbeanery_ca.get_sale_items() + \
         wholelattelove_ca.get_sale_items()
 
-print( json.dumps(get_all_sales() ) )
+    return {
+        'retrieved_at' : datetime.datetime.now().strftime("%Y-%m-%d"),
+        'sale_items' : sale_items
+    }
+
+if __name__ == "__main__":
+    print( json.dumps(get_all_sales() ) )
