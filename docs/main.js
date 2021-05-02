@@ -52,7 +52,7 @@ async function setupTable() {
       valueFormatter: (row) => {
         return currencyFormatter(row.value) 
       },
-      filter='agNumberColumnFilter'
+      filter: 'agNumberColumnFilter'
     },
     { field: "Savings", sortable: true, filter: true, resizable: true,
       valueGetter: (row) => {
@@ -61,7 +61,7 @@ async function setupTable() {
       valueFormatter: (row) => {
         return currencyFormatter(row.value) 
       },
-      filter='agNumberColumnFilter'
+      filter: 'agNumberColumnFilter'
     },
     { field: "Savings (%)", sortable: true, filter: true, resizable: true,
       valueGetter: (row) => {
@@ -70,7 +70,7 @@ async function setupTable() {
       valueFormatter: (row) => {
         return percentFormatter(row.value) 
       },
-      filter='agNumberColumnFilter'
+      filter: 'agNumberColumnFilter'
     },
     { field: "Site", sortable: true, filter: true, resizable: true,
       valueGetter: (row) => {
