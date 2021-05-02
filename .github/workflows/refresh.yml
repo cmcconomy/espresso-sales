@@ -24,7 +24,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          pip3 install -r requirements
+          pip3 install -r requirements.txt
           python3 espresso_sales > sales.json
           if [ $? == 0 ]; then
             mv sales.json ./docs/data/sales.json
