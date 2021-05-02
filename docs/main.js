@@ -79,7 +79,9 @@ async function setupTable() {
   
   // specify the data
   let rowData = await getData()
-  update_date = rowData.retrieved_at
+  const update_date = rowData.retrieved_at
+  let date_placeholder = document.body.querySelector('#update_date')
+  date_placeholder.innerText = update_date
   
   // let the grid know which columns and what data to use
   const gridOptions = {
