@@ -78,12 +78,13 @@ async function setupTable() {
   ];
   
   // specify the data
-  const rowData = await getData()
+  let rowData = await getData()
+  update_date = rowData.retrieved_at
   
   // let the grid know which columns and what data to use
   const gridOptions = {
     columnDefs: columnDefs,
-    rowData: rowData
+    rowData: rowData.sale_items
   };
 
   const gridDiv = document.querySelector('#myGrid');
