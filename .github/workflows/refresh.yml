@@ -1,10 +1,10 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Refresh
+name: Refresh Sales Table
 
 on:
-  #schedule:
-  #- cron: "0 8 * * *"
+  schedule:
+  - cron: "0 8 * * *"
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -24,11 +24,10 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          pip3 install -r requirements
+          pip3 install -r requirements.txt
           python3 espresso_sales > sales.json
-          if [ $? == 0 ]; then
-            mv sales.json ./docs/data/sales.json
-            git add ./docs/data/sales.json
-            git commit -m "Daily update"
-          fi
-        
+          mv sales.json ./docs/data/sales.json
+
+      - uses: stefanzweifel/git-auto-commit-action@v4 
+        with:
+          file_pattern: ./docs/data/sales.json
