@@ -11,6 +11,7 @@ Python app to collect all sales on espresso equipment in Canada (!)
 
 ## Running
 *(If you installed a Virtual Environment, ensure you activate it as above)*
+
 `python3 espresso_sales > docs/data/sales.json`
 
 ## Daily Update
