@@ -43,7 +43,8 @@ async function setupTable() {
       },
       valueFormatter: (row) => {
         return currencyFormatter(row.value) 
-      }
+      },
+      filter: 'agNumberColumnFilter', suppressMenuHide: true
     },
     { field: "Original Price", sortable: true, filter: true, resizable: true,
       valueGetter: (row) => {
