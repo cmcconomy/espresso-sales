@@ -36,7 +36,7 @@ async function setupTable() {
       }
     
     },
-    { field: "name", sortable: true, filter: true, resizable: true },
+    { field: "name", sortable: true, filter: true, resizable: true, suppressMenuHide: true },
     { field: "Sale Price", sortable: true, filter: true, resizable: true,
       valueGetter: (row) => {
         return row.data.sale_price
@@ -52,7 +52,7 @@ async function setupTable() {
       valueFormatter: (row) => {
         return currencyFormatter(row.value) 
       },
-      filter: 'agNumberColumnFilter'
+      filter: 'agNumberColumnFilter', suppressMenuHide: true
     },
     { field: "Savings", sortable: true, filter: true, resizable: true,
       valueGetter: (row) => {
@@ -61,7 +61,7 @@ async function setupTable() {
       valueFormatter: (row) => {
         return currencyFormatter(row.value) 
       },
-      filter: 'agNumberColumnFilter'
+      filter: 'agNumberColumnFilter', suppressMenuHide: true
     },
     { field: "Savings (%)", sortable: true, filter: true, resizable: true,
       valueGetter: (row) => {
@@ -70,9 +70,9 @@ async function setupTable() {
       valueFormatter: (row) => {
         return percentFormatter(row.value) 
       },
-      filter: 'agNumberColumnFilter'
+      filter: 'agNumberColumnFilter', suppressMenuHide: true
     },
-    { field: "Site", sortable: true, filter: true, resizable: true,
+    { field: "Site", sortable: true, filter: true, resizable: true, suppressMenuHide: true,
       valueGetter: (row) => {
         return row.data.website
       }
