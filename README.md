@@ -1,6 +1,6 @@
 # espresso-sales
-Python app to collect all sales on espresso equipment in Canada (!)
-See it live [here](https://cmcconomy.github.io/espresso-sales/)
+Python app to collect all sales on espresso equipment in Canada (!)  
+See it live [here](http://espresso-sales.mcconomy.org/)
 
 ## Installation
 
