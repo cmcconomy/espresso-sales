@@ -12,6 +12,9 @@ def get_sale_items():
     sale_items = []
 
     for sale_span in sale_spans:
+        if sale_span.select('span.sold_out'):
+            continue
+
         sale_item = {
             'type' : 'superauto',
             'name' : sale_span.parent.select('span.title')[0].text.strip(),
