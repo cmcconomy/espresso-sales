@@ -26,10 +26,6 @@ def get_sale_items_for(page_type):
     else:
         num_pages = 1
 
-    page = requests.get(base_url)
-    soup = BeautifulSoup(page.content, 'html.parser')
-    website = 'espressoplanet.com'
-
     sale_items = []
     for page_num in range(1,num_pages+1):
         if page_num > 1:
