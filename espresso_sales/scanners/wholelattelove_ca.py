@@ -4,8 +4,7 @@ import scanutil
 
 def get_sale_items():
     base_url = "https://wholelattelove.ca/collections/all-coffee-makers?_=pf"
-    page = requests.get(base_url)
-    soup = BeautifulSoup(page.content, 'html.parser')
+    soup = scanutil.get_soup(base_url)
     website = 'wholelattelove.ca'
 
     sale_items = []
@@ -13,8 +12,7 @@ def get_sale_items():
     page_num=1
     while True:
         if page_num > 1:
-            page = requests.get(f"{base_url}&page={page_num}")
-            soup = BeautifulSoup(page.content, 'html.parser')
+            soup = scanutil.get_soup(f"{base_url}&page={page_num}")
 
         if len(soup.select('div.product-wrap')) == 0:
             break

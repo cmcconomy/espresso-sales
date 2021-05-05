@@ -11,9 +11,7 @@ def get_sale_items():
 
 def get_sale_items_for(page_type):
     base_url = f"https://www.espressoplanet.com/coffee-espresso/{page_type}/?sort=orderby&sort_direction=0&objects_per_page=1000"
-
-    page = requests.get(base_url)
-    soup = BeautifulSoup(page.content, 'html.parser')
+    soup = scanutil.get_soup(base_url)
     website = 'espressoplanet.com'
 
     market_price_values = soup.select('span.market-price-value')

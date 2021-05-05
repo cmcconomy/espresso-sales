@@ -10,8 +10,7 @@ def get_sale_items():
 
 def get_sale_items_for(page_type, url_fragment):
     base_url = f"https://www.faema.ca/{url_fragment}?searching=Y&sort=13&cat=1915&show=1000&page=1"
-    page = requests.get(base_url)
-    soup = BeautifulSoup(page.content, 'html.parser')
+    soup = scanutil.get_soup(base_url)
     website = 'faema.ca'
 
     sale_items = []

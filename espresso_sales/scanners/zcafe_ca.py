@@ -11,13 +11,10 @@ def get_sale_items():
 
 def get_sale_items_for(page_type, url_fragment):
     base_url = f"https://www.zcafe.ca/site/{url_fragment}"
-    page = requests.get(base_url)
-    soup = BeautifulSoup(page.content, 'html.parser')
+    soup = scanutil.get_soup(base_url)
     website = 'zcafe.ca'
 
     sale_items = []
-
-
 
     images = soup.select('img[style]')
     for image in images:
@@ -36,7 +33,6 @@ def get_sale_items_for(page_type, url_fragment):
     return sale_items
 
 def get_regular_price(url):
-    page = requests.get(url)
-    soup = BeautifulSoup(page.content, 'html.parser')
+    soup = scanutil.get_soup(url)
     price = scanutil.get_money(soup.select('#ProductInfo_Lbl_product_price_strike')[0].text)
     return price

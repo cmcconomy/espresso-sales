@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import scanutil
+import time
 
 def get_sale_items():
     return \
@@ -11,8 +12,7 @@ def get_sale_items():
 
 def get_sale_items_for(page_type):
     base_url = f"https://caffetech.com/collections/{page_type}"
-    page = requests.get(base_url)
-    soup = BeautifulSoup(page.content, 'html.parser')
+    soup = scanutil.get_soup(base_url)
     website = 'caffetech.com'
 
     pages = soup.select('ul.pagination__nav a')
@@ -25,8 +25,7 @@ def get_sale_items_for(page_type):
 
     for page_num in range(1,num_pages+1):
         if page_num > 1:
-            page = requests.get(f"{base_url}?page={page_num}")
-            soup = BeautifulSoup(page.content, 'html.parser')
+            soup = scanutil.get_soup(f"{base_url}?page={page_num}")
 
         sale_prices = soup.select('span.product-item__price--new')
         for sale_price in sale_prices:

@@ -15,9 +15,7 @@ def get_sale_items_for(page_type):
         page_type = f"consumer/{page_type}" 
 
     base_url = f"https://idrinkcoffee.com/collections/{page_type}"
-
-    page = requests.get(base_url)
-    soup = BeautifulSoup(page.content, 'html.parser')
+    soup = scanutil.get_soup(base_url)
     website = 'idrinkcoffee.com'
 
     pages = soup.select('div.articlePreviewPagination a')
@@ -29,8 +27,7 @@ def get_sale_items_for(page_type):
     sale_items = []
     for page_num in range(1,num_pages+1):
         if page_num > 1:
-            page = requests.get(f"{base_url}?page={page_num}")
-            soup = BeautifulSoup(page.content, 'html.parser')
+            soup = scanutil.get_soup(f"{base_url}?page={page_num}")
         
         orig_prices = soup.select('s')
         for orig_price in orig_prices:

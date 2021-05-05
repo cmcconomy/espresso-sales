@@ -11,8 +11,7 @@ def get_sale_items():
 
 def get_sale_items_for(page_type):
     base_url = f"https://www.espressotec.com/{page_type}?sort=pricedesc&limit=100&mode=4"
-    page = requests.get(base_url)
-    soup = BeautifulSoup(page.content, 'html.parser')
+    soup = scanutil.get_soup(base_url)
     website = 'espressotec.com'
 
     sale_items = []

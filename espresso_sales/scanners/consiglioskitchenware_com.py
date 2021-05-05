@@ -9,8 +9,7 @@ def get_sale_items():
 
 def get_sale_items_for(page_type):
     base_url = f"https://www.consiglioskitchenware.com/collections/{page_type}?view=view-48"
-    page = requests.get(base_url)
-    soup = BeautifulSoup(page.content, 'html.parser')
+    soup = scanutil.get_soup(base_url)
     website = 'consiglioskitchenware.com'
 
     page_links = soup.select('a.pagination--item')
@@ -23,8 +22,7 @@ def get_sale_items_for(page_type):
 
     for page_num in range(1,num_pages+1):
         if page_num > 1:
-            page = requests.get(f"{base_url}&page={page_num}")
-            soup = BeautifulSoup(page.content, 'html.parser')
+            soup = scanutil.get_soup(f"{base_url}&page={page_num}")
 
         orig_prices = soup.select('div.price--compare-at')
         for orig_price in orig_prices:

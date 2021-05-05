@@ -10,8 +10,7 @@ def get_sale_items():
 
 def get_sale_items_for(page_type):
     base_url = f"https://greenbeanery.ca/collections/{page_type}"
-    page = requests.get(base_url)
-    soup = BeautifulSoup(page.content, 'html.parser')
+    soup = scanutil.get_soup(base_url)
     website = 'greenbeanery.ca'
 
     sale_items = []

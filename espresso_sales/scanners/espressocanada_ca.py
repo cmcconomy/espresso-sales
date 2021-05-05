@@ -3,8 +3,8 @@ from bs4 import BeautifulSoup
 import scanutil
 
 def get_sale_items():
-    page = requests.get("https://espressocanada.com/collections/saeco-philips-and-jura-superautomatic-coffee-machines")
-    soup = BeautifulSoup(page.content, 'html.parser')
+    base_url = "https://espressocanada.com/collections/saeco-philips-and-jura-superautomatic-coffee-machines"
+    soup = scanutil.get_soup(base_url)
     website = 'espressocanada.com'
 
     sale_spans = soup.select('span.sale')
