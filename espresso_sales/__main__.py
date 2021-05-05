@@ -4,7 +4,7 @@ from scanners import espressocanada_ca, \
     espressoplanet_ca, idrinkcoffee_com, espressodolce_ca, \
     faema_ca, caffetech_com, zcafe_ca, espressotec_com, \
     consiglioskitchenware_com, greenbeanery_ca, \
-    wholelattelove_ca
+    wholelattelove_ca, homecoffeesolutions_com
 
 
 def get_all_sales():
@@ -19,7 +19,8 @@ def get_all_sales():
         espressotec_com.get_sale_items() + \
         consiglioskitchenware_com.get_sale_items() + \
         greenbeanery_ca.get_sale_items() + \
-        wholelattelove_ca.get_sale_items()
+        wholelattelove_ca.get_sale_items() + \
+        homecoffeesolutions_com.get_sale_items()
 
     return {
         'retrieved_at' : datetime.datetime.now().strftime("%Y-%m-%d"),
